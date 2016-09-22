@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/everypolitician/everypolitician-ruby.git
+  revision: fca557a65ca09ae9da105d8bff53e97e3ebcfdc1
+  specs:
+    everypolitician (0.18.0)
+      everypolitician-popolo
+
+GIT
   remote: https://github.com/everypolitician/wikidata-fetcher.git
   revision: 7f02f4a44e90475bec48164757dd2e119143702e
   specs:
@@ -43,6 +50,7 @@ GEM
     diskcached (1.1.2)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
+    everypolitician-popolo (0.6.1)
     excon (0.51.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
@@ -95,6 +103,7 @@ PLATFORMS
 
 DEPENDENCIES
   colorize
+  everypolitician!
   mediawiki_api
   nokogiri
   open-uri-cached
@@ -105,5 +114,8 @@ DEPENDENCIES
   wikidata-fetcher (>= 0.15.0)!
   wikisnakker!
 
+RUBY VERSION
+   ruby 2.0.0p648
+
 BUNDLED WITH
-   1.11.2
+   1.12.5

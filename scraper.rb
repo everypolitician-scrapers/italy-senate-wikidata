@@ -15,4 +15,9 @@ sparq = <<EOQ
 EOQ
 ids = EveryPolitician::Wikidata.sparql(sparq)
 
-EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { it: by_cat })
+# Senators for life
+# TODO: if this list gets too big, restrict by date (or date of death)
+life_sparq = 'SELECT DISTINCT ?item WHERE { ?item p:P39/ps:P39 wd:Q826589 }'
+life_ids = EveryPolitician::Wikidata.sparql(life_sparq)
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids | life_ids, names: { it: by_cat })

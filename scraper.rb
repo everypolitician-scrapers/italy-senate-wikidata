@@ -3,8 +3,8 @@
 
 require 'wikidata/fetcher'
 
-by_cat = WikiData::Category.new( 'Categoria:Senatori della XVII legislatura della Repubblica Italiana', 'it').member_titles |
-         WikiData::Category.new( 'Categoria:Senatori della XVIII legislatura della Repubblica Italiana', 'it').member_titles
+by_cat = WikiData::Category.new( 'Categoria:Senatori della XVII legislatura della Repubblica Italiana', 'it').wikidata_ids |
+         WikiData::Category.new( 'Categoria:Senatori della XVIII legislatura della Repubblica Italiana', 'it').wikidata_ids
 
 # Senators of the 17th/18th Legislature
 sparq = <<EOQ
@@ -20,4 +20,4 @@ ids = EveryPolitician::Wikidata.sparql(sparq)
 life_sparq = 'SELECT DISTINCT ?item WHERE { ?item p:P39/ps:P39 wd:Q826589 }'
 life_ids = EveryPolitician::Wikidata.sparql(life_sparq)
 
-EveryPolitician::Wikidata.scrape_wikidata(ids: ids | life_ids, names: { it: by_cat })
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids | life_ids | by_cat)
